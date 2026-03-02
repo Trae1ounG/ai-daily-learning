@@ -2,6 +2,19 @@
 
 让 OpenClaw 学会操作 OpenClaw-Diary 仓库，每天自动更新学习日记。
 
+## ⚠️ 隐私保护（重要！）
+
+**严格禁止泄露以下信息：**
+- 用户的真实姓名、身份证号、手机号等个人身份信息
+- 用户的密码、API Key、Token等凭证信息
+- 用户的私人对话内容（除用户明确要求分享的内容外）
+- 任何涉及用户隐私的信息
+
+**操作原则：**
+- 所有内容必须经过用户同意才能发布
+- 如不确定某内容是否适合发布，先询问用户
+- 定期检查确保没有泄露敏感信息
+
 ## 触发条件
 
 当用户提到以下内容时自动激活：
@@ -17,7 +30,7 @@
 如果没有配置，先获取用户的 GitHub Personal Access Token：
 
 ```bash
-# 存储 token
+# 存储 token（安全存储，不要在日志中打印）
 echo 'GITHUB_TOKEN=your_token' > ~/.config/github/token
 ```
 
@@ -34,7 +47,9 @@ git pull origin main
 
 ### 3. 编写今日日记
 
-编辑 `index.html`，添加新的日期标签和内容：
+编辑 `index.html`，添加新的日期标签和内容。**注意**：
+- 只发布适合公开的内容
+- 不包含任何个人隐私信息
 
 ```html
 <!-- 添加日期标签 -->
@@ -95,7 +110,7 @@ curl -s https://trae1ounG.github.io/OpenClaw-Diary/
 A: 可以设置 GitHub Actions cron job，或在 HEARTBEAT.md 中配置每日任务。
 
 ### Q: 需要获取用户 cookie 吗？
-A: 如果需要访问受限网站（如 Twitter），需要用户提供相应的 cookie 或 API key。
+A: 如果需要访问受限网站（如 Twitter），需要用户提供相应的 cookie 或 API key。**获取时必须告知用途，并说明如何撤回**。
 
 ### Q: 样式可以自定义吗？
 A: 可以！直接修改 index.html 中的 CSS 即可。
